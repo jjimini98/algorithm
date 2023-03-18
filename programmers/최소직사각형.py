@@ -1,17 +1,12 @@
 def solution(sizes):
-    widthes = [a*b for a,b in sizes]
-    x = sizes[widthes.index(max(widthes))][0]
-    y = sizes[widthes.index(max(widthes))][1]
 
-    print(widthes)
-    print(x)
-    print(y)
-    for a,b in sizes:
-        x = max(x,a)
-        y = max(y,b)
-    print(x)
-    print(y)
-    return x*y
+    x = []
+    y = [] 
+    for s in sizes:
+        x.append(max(s))
+        y.append(min(s))
+
+    return max(x)*max(y)
 
 
 
