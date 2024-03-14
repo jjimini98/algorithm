@@ -5,15 +5,16 @@ input = stdin.readline
 for _ in range(int(input())):
 
     logger = input().rstrip()
-    t = logger.replace(">",'').replace("<","").replace("-",'')
-    password = ['' for _ in range(len(t))]
+    # password = ['' for _ in range(len(logger))]
+    password = ['']
+    flag = False 
     idx = 0 
     for log in logger:
         if log == ">":
             idx += 1 
 
         elif log == "<" and idx > 0:
-            idx -= 1 
+            idx -= 1 # 1
             tmp = password[idx: ]
             password = password[:idx]
             password.append('')
