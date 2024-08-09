@@ -17,27 +17,18 @@ for _ in range(N):
 
 total = []
 result = []
-for idx in range(N): # 2차원 배열이라는걸 간과했다!
-    sum = N_matrix[idx] + M_matrix[idx]
-    result.append(sum)
-    if idx == N-1:
+
+for n , m in zip(N_matrix,M_matrix):
+    for i , j  in zip(n,m):
+        sum = i+j
         result.append(sum)
+    if result not in total:
+        total.append(result)
         result = []
-
-print(result)
-    # if idx == N-1:
-    #     total.append(result)
-    #     result = []
-
-print(total)
-# for n, m in zip(N_matrix,M_matrix):
-#     sum = n + m
-#     result.append(sum)
-#     if sum == N:
-#         total.append(result)
-
-# print(*total)
+    else:
+        pass
 
 
 
-
+for to in total:
+    print(*to)
