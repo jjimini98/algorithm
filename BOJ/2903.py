@@ -9,3 +9,4 @@ for i  in dot_count:
     dot = inital * inital
 print(dot)
 
+
