@@ -1,26 +1,34 @@
-import time
+
 from sys import stdin
 
-start = time.time()  # 시작 시간 저장
+def plus_value(N):
+    if N == 1: return "1/1"
+    else:
+        num = 1
+        for i in range(2,N+1):
+            num += i
+            if num >= N:
+                return i,num
 
-def main(N):
 
-    num = 0
 
+def main(N): # N은 input 으로 입력되는 숫자
     if N == 1 : return "1/1"
+    i,num = plus_value(N)
+    arr = [x for x in range(1,i+1)]
+    reverse_arr = list(reversed(arr))
+    answers = []
+    if i %2 == 0:
+        for a,r in zip(arr,reverse_arr):
+            answers.append("{}/{}".format(r,a))
+        answers = answers[abs(num-N)]
 
-    for idx in range(1,N+1):
-        for i, j in zip(range(1, idx + 1), range(idx, 0, -1)):
-            num += 1
-            if num == N :
-                if N % 2  == 0 :
-                    return  f"{i}/{j}"
-                else:
-                    return f"{j}/{i}"
-
-
+    else :
+        for a,r in zip(arr,reverse_arr):
+            answers.append("{}/{}".format(a,r))
+        answers = answers[abs(num-N)]
+    return answers
 
 if __name__ == "__main__":
     N = int(stdin.readline())
     print(main(N))
-
